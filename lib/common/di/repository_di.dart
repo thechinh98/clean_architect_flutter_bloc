@@ -6,6 +6,6 @@ import '../../domain/repository/auth_repository.dart';
 class RepositoryDI{
   RepositoryDI._();
   static Future<void> init(GetIt injector) async {
-    injector.registerFactory<AuthRepository>(() => AuthRepositoryImpl(injector()));
+    injector.registerFactory<AuthRepository>(() => AuthRepositoryImpl(injector(), injector()));
   }
 }
