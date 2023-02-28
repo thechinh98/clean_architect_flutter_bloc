@@ -26,7 +26,7 @@ class AppRoute {
       );
     }
     return MaterialPageRoute<dynamic>(
-        builder: (ctx) => widget, settings: RouteSettings(name: settings.name));
+        builder: (ctx) => widget, settings: settings);
   }
 }
 
