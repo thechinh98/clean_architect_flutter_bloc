@@ -78,7 +78,7 @@ Future<void> _showErrorSnackBar(
   );
 
   _previousEntry?.remove();
-  overlayState?.insert(overlayEntry);
+  overlayState.insert(overlayEntry);
   _previousEntry = overlayEntry;
 }
 
@@ -114,7 +114,7 @@ class TopSnackBar extends StatefulWidget {
   final NotificationType notificationType;
 
   @override
-  _TopSnackBarState createState() => _TopSnackBarState();
+  State<TopSnackBar> createState() => _TopSnackBarState();
 }
 
 class _TopSnackBarState extends State<TopSnackBar>

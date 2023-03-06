@@ -19,10 +19,11 @@ extension StringNullExtension on String? {
     return email.hasMatch(this!);
   }
 
-  bool  isEmptyOrNull() {
+  bool isEmptyOrNull() {
     if (this == null) return true;
     return this!.isEmpty;
   }
+
 //
 //   String? validateName() {
 //     if (this == null) return S().error_required_field;
@@ -37,8 +38,6 @@ extension StringNullExtension on String? {
 //     return null;
 //   }
 
-
-
   // String? validateEmpty() {
   //   if (this != null) {
   //     if (this!.isNotEmpty) {
@@ -52,7 +51,7 @@ extension StringNullExtension on String? {
     if (this == null) return '';
     int? moIndex = this!.indexOf('mo');
     if (moIndex != -1) {
-      return this!.substring(0, moIndex) + ' mo';
+      return '${this!.substring(0, moIndex)} mo';
     }
     return this!;
   }
@@ -73,11 +72,8 @@ extension StringNullExtension on String? {
     for (int i = startIndex; i < endIndex; i++) {
       subEncodeContent += '*';
     }
-    String encodedEmail = emailContent.substring(0, startIndex) +
-        subEncodeContent +
-        emailContent.substring(endIndex) +
-        '@' +
-        domain;
+    String encodedEmail = '${emailContent.substring(0, startIndex)}'
+        '$subEncodeContent${emailContent.substring(endIndex)}@$domain';
     return encodedEmail;
   }
 }
@@ -86,7 +82,7 @@ extension StringExtension on String {
   String formatPhoneNumber() {
     String s = toString();
     if (s.isNotEmpty) {
-      s = s.replaceAll(RegExp(r'[-]{2,}'), '-');
+      s = s.replaceAll(RegExp(r'-{2,}'), '-');
       List<String> list = s.split('');
       if (list.last == '-') {
         list.removeLast();
@@ -257,7 +253,7 @@ extension StringMessageExtension on String {
 
   String toUrl() {
     if (!RegExp(r'^(https?|ftp)').hasMatch(this)) {
-      return 'http://' + this;
+      return 'http://$this';
     }
     return this;
   }
@@ -266,5 +262,4 @@ extension StringMessageExtension on String {
       RegExp(r' @{"id":"(\d+)","name":"([a-zA-Z ]+)"} ').hasMatch(this);
 
   String getMentionString() => trim().substring(1);
-
 }

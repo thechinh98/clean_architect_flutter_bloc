@@ -1,5 +1,4 @@
 import 'package:base_flutter_bloc/common/di/app_injector.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../common/configs/logger_config.dart';
@@ -26,11 +25,11 @@ class AppRoute {
       );
     }
     return MaterialPageRoute<dynamic>(
-        builder: (ctx) => widget, settings: settings);
+        builder: (BuildContext ctx) => widget, settings: settings);
   }
 }
 
 class RouteConst {
-  static String splashRoute = "/";
-  static String loginRoute = "/login";
+  static String splashRoute = '/';
+  static String loginRoute = '/login';
 }

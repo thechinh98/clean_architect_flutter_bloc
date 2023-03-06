@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../../domain/entities/data_state.dart';
-import '../../../mapper/auth_response_mapper.dart';
 
 mixin ConvertAbleDataState {
   DataState<A> convertToDataState<A, B>(

@@ -3,9 +3,11 @@ import 'package:get_it/get_it.dart';
 
 import '../../domain/repository/auth_repository.dart';
 
-class RepositoryDI{
+class RepositoryDI {
   RepositoryDI._();
+
   static Future<void> init(GetIt injector) async {
-    injector.registerFactory<AuthRepository>(() => AuthRepositoryImpl(injector(), injector()));
+    injector.registerFactory<AuthRepository>(
+        () => AuthRepositoryImpl(injector(), injector()));
   }
 }

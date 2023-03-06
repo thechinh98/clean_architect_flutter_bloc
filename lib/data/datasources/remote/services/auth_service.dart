@@ -17,13 +17,13 @@ class AuthService with ConvertAbleDataState {
   Future<DataState<AuthEntity>> login(
       String phoneNumber, String countryCode) async {
     try {
-      final HttpResponse<AuthResponse> _response = await _api
+      final HttpResponse<AuthResponse> response = await _api
           .login(<String, String>{
         'mobile': phoneNumber.normalizePhoneNumber(),
         'countryCode': countryCode
       });
       return convertToDataState<AuthEntity, AuthResponse>(
-          _response, AuthResponseMapper());
+          response, AuthResponseMapper());
     } on DioError catch (error) {
       return DataFailed<AuthEntity>(error);
     }

@@ -5,9 +5,11 @@ import '../configs/dio_interceptor_config.dart';
 import '../configs/network_config.dart';
 import 'app_injector.dart';
 
-class NetworkDI{
+class NetworkDI {
   NetworkDI._();
-  static Future<void> init(GetIt injector, {required BuildMode buildMode}) async {
+
+  static Future<void> init(GetIt injector,
+      {required BuildMode buildMode}) async {
     getIt.registerLazySingleton(() => NetWorkMode(mode: buildMode));
     getIt.registerLazySingleton<CustomInterceptors>(() => CustomInterceptors());
     getIt.registerFactory<Dio>(() {
@@ -18,8 +20,8 @@ class NetworkDI{
             receiveTimeout: injector<NetWorkMode>().receiveTimeout,
             headers: injector<NetWorkMode>().headers),
       )..interceptors.add(
-        injector<CustomInterceptors>(),
-      );
+          injector<CustomInterceptors>(),
+        );
     });
   }
 }

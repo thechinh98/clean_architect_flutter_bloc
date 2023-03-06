@@ -1,16 +1,16 @@
 enum SplashStatus { init, initializing, tokenValid, tokenInValid, unknownError }
 
 class SplashState {
-  final SplashStatus status;
-  final bool? hasProfile;
-  final bool isEmailSent;
-  final bool isSetupComplete;
 
   SplashState(
       {this.status = SplashStatus.init,
       this.hasProfile = false,
       this.isEmailSent = false,
       this.isSetupComplete = false});
+  final SplashStatus status;
+  final bool? hasProfile;
+  final bool isEmailSent;
+  final bool isSetupComplete;
 
   SplashState copyWith(
       {SplashStatus? status,

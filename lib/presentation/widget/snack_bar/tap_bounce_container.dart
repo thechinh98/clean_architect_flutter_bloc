@@ -20,7 +20,7 @@ class TapBounceContainer extends StatefulWidget {
   final NotificationType notificationType;
 
   @override
-  _TapBounceContainerState createState() => _TapBounceContainerState();
+  State<TapBounceContainer> createState() => _TapBounceContainerState();
 }
 
 class _TapBounceContainerState extends State<TapBounceContainer>

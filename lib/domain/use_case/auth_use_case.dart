@@ -10,12 +10,12 @@ class AuthUseCase {
   final AuthRepository _authRepository;
 
   Future<DataState<AuthEntity>> login() async {
-    final entity = await _authRepository.login();
+    DataState<AuthEntity> entity = await _authRepository.login();
     return entity;
   }
 
   Future<UserInfoEntity> getUserInfo() async {
-    final entity = await _authRepository.getUserInfo();
+    UserInfoEntity entity = await _authRepository.getUserInfo();
     return entity;
   }
 }

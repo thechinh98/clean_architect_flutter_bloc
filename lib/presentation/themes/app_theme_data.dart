@@ -16,7 +16,7 @@ class AppThemeData {
       // 0xFFAA2B2F
 
       bottomAppBarTheme:
-      const BottomAppBarTheme(color: kDefaultBottomAppBarColor),
+          const BottomAppBarTheme(color: kDefaultBottomAppBarColor),
       // 0xFFAA2B,
 
       inputDecorationTheme: InputDecorationTheme(
@@ -37,7 +37,6 @@ class AppThemeData {
 
   static ThemeData get darkTheme {
     return ThemeData(
-      primarySwatch: Colors.grey,
       scaffoldBackgroundColor: kDarkModeBackgroundColor,
       // 0xFFF6F3F0
       appBarTheme: const AppBarTheme(
@@ -47,7 +46,7 @@ class AppThemeData {
       // 0xFFAA2B2F
 
       bottomAppBarTheme:
-      const BottomAppBarTheme(color: kDarkModeBottomAppBarColor),
+          const BottomAppBarTheme(color: kDarkModeBottomAppBarColor),
       // 0xFFAA2B,
 
       inputDecorationTheme: InputDecorationTheme(
@@ -59,12 +58,13 @@ class AppThemeData {
       ),
       primaryColor: Colors.black,
       brightness: Brightness.dark,
-      backgroundColor: const Color(0xFF212121),
       // accentColor: Colors.white,
       // accentIconTheme: IconThemeData(color: Colors.black),
       dividerColor: Colors.black12,
 
       fontFamily: 'SF Pro Display',
+      colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.grey)
+          .copyWith(background: const Color(0xFF212121)),
       // pageTransitionsTheme: const PageTransitionsTheme(builders: {
       //   TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       //   TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),

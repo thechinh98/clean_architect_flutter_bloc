@@ -5,6 +5,8 @@ import 'package:base_flutter_bloc/presentation/screens/splash/bloc/splash_event.
 import 'package:base_flutter_bloc/presentation/screens/splash/bloc/splash_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../domain/entities/user_info_entity.dart';
+
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   SplashBloc() : super(SplashState.initState) {
     on<SplashInitialDependenciesEvent>(_onInitDependencies);
@@ -15,7 +17,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     Emitter<SplashState> emit,
   ) async {
     emit(state.copyWith(status: SplashStatus.initializing));
-    final userEntity = await getIt<AuthUseCase>().getUserInfo();
+    UserInfoEntity userEntity = await getIt<AuthUseCase>().getUserInfo();
     final String? accessToken = userEntity.accessToken;
     if (!accessToken.isEmptyOrNull()) {
       emit(state.copyWith(status: SplashStatus.tokenValid));

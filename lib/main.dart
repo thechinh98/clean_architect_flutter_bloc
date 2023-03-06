@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       create: (_) => getIt<AppBloc>(),
       child: MaterialApp(
         title: 'Flutter Demo',
-        localizationsDelegates: const [
+        localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
           S.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
@@ -82,8 +82,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  List<int> listInt = [];
+  List<int> listInt = <int>[];
 
   @override
   void initState() {
@@ -101,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView.builder(
         shrinkWrap: true,
-        itemBuilder: (context, index) {
+        itemBuilder: (BuildContext context, int index) {
           int item = listInt[index];
           return TempItem(index: item);
         },
@@ -127,19 +126,15 @@ class _TempItemState extends State<TempItem> {
   void initState() {
     super.initState();
     index = widget.index;
-    print("INIT STATE: $index");
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(index.toString()),
-    );
+    return Text(index.toString());
   }
 
   @override
   void dispose() {
-    print("DISPOSE: $index");
     super.dispose();
   }
 }

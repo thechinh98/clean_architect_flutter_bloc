@@ -10,10 +10,10 @@ enum LoginStatus {
 
 @immutable
 class LoginState {
+  const LoginState({this.status = LoginStatus.initState, this.message});
+
   final LoginStatus status;
   final String? message;
-
-  LoginState({this.status = LoginStatus.initState, this.message});
 
   LoginState copyWith({LoginStatus? status, String? message}) {
     return LoginState(
@@ -22,5 +22,5 @@ class LoginState {
     );
   }
 
-  static LoginState initState = LoginState();
+  static LoginState initState = const LoginState();
 }

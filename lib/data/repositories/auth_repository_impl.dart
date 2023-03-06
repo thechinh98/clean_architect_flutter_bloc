@@ -7,19 +7,20 @@ import 'package:base_flutter_bloc/domain/repository/auth_repository.dart';
 import '../datasources/local/auth_local_datasource.dart';
 
 class AuthRepositoryImpl extends AuthRepository{
+
+  AuthRepositoryImpl(this._authRemoteDataSource, this._authLocalDataSource);
   final AuthRemoteDataSource _authRemoteDataSource;
   final AuthLocalDataSource _authLocalDataSource;
 
-  AuthRepositoryImpl(this._authRemoteDataSource, this._authLocalDataSource);
   @override
   Future<DataState<AuthEntity>> login() async {
-    final response = await _authRemoteDataSource.login("", "");
+    DataState<AuthEntity> response = await _authRemoteDataSource.login('', '');
     return response;
   }
 
   @override
   Future<UserInfoEntity> getUserInfo() async {
-    final entity = await _authLocalDataSource.getUserInfo();
+    UserInfoEntity entity = await _authLocalDataSource.getUserInfo();
     return entity;
   }
 

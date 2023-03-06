@@ -37,7 +37,6 @@ class AppConfig {
         //   );
         // }
       }
-      ;
 
       ErrorWidget.builder = (FlutterErrorDetails details) {
         if (kReleaseMode) {

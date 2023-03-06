@@ -95,7 +95,7 @@ class CustomSnackBarWidget extends StatefulWidget {
   final NotificationType notificationType;
 
   @override
-  _CustomSnackBarWidgetState createState() => _CustomSnackBarWidgetState();
+  State<CustomSnackBarWidget> createState() => _CustomSnackBarWidgetState();
 }
 
 class _CustomSnackBarWidgetState extends State<CustomSnackBarWidget>

@@ -6,13 +6,13 @@ import 'base_mapper.dart';
 
 extension AuthResponseMapperX on AuthResponse {
   BaseEntityModel mapToEntity() {
-    return AuthEntity(token: accessToken ?? "");
+    return AuthEntity(token: accessToken ?? '');
   }
 }
 
 class AuthResponseMapper extends BaseMapper<AuthEntity, AuthResponse> {
   @override
   AuthEntity call(AuthResponse? response) {
-    return AuthEntity(token: response?.accessToken ?? "");
+    return AuthEntity(token: response?.accessToken ?? '');
   }
 }
