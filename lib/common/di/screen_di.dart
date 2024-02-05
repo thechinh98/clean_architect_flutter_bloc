@@ -1,4 +1,5 @@
 import 'package:base_flutter_bloc/presentation/app_routes.dart';
+import 'package:base_flutter_bloc/presentation/screens/home/home_screen.dart';
 import 'package:base_flutter_bloc/presentation/screens/login/login_screen.dart';
 import 'package:base_flutter_bloc/presentation/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,5 +14,8 @@ class ScreenDI {
 
     injector.registerFactory<Widget>(() => const LoginScreen(),
         instanceName: RouteConst.loginRoute);
+
+    injector.registerFactory<Widget>(() => const HomeScreen(),
+        instanceName: RouteConst.homeRoute);
   }
 }

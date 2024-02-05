@@ -32,4 +32,5 @@ class AppRoute {
 class RouteConst {
   static String splashRoute = '/';
   static String loginRoute = '/login';
+  static String homeRoute = '/home';
 }

@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
         theme: AppThemeData.lightTheme,
         onGenerateRoute: AppRoute.getRoute,
-        initialRoute: RouteConst.loginRoute,
+        initialRoute: RouteConst.homeRoute,
         builder: EasyLoading.init(
           builder: (_, Widget? child) {
             return ResponsiveWrapper.builder(

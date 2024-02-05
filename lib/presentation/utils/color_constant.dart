@@ -75,3 +75,7 @@ const Color kDefaultDashInputBorderColor = Color(0xFF2F7CA0);
 const Color kDefaultBackgroundHeaderColor =  Color(0xFFD5E5EC);
 const Color kHeadline3Color = Color(0xFF444D53);
 const Color kContentTextColor = Color(0xFF444D5A);
+
+
+// WAIPAY COLOR
+const Color mainHeaderColor = Color(0xFF2D6D7A);

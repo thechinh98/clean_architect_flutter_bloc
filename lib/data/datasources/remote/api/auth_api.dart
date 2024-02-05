@@ -6,7 +6,7 @@ import '../responses/base_response.dart';
 part 'auth_api.g.dart';
 
 @RestApi()
-abstract class AuthApi {
+abstract class  AuthApi {
   factory AuthApi(Dio dio) = _AuthApi;
 
   @POST('/api/auth/login')
