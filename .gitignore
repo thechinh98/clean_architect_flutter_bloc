@@ -24,3 +24,11 @@
 
 ## File-based project format:
 *.iws
+
+## xml file:
+*.xml
+
+## idea folder
+.idea/
+
+.dart_tool/
