@@ -1,3 +1,3 @@
-abstract class UseCase<R>{
-  R call([dynamic argument]);
+abstract class UseCase<P,R>{
+  Future<R> call(P argument);
 }

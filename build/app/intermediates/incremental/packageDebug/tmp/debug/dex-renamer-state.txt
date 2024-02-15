@@ -1,4 +1,0 @@
-#Fri Jan 05 09:23:27 ICT 2024
-base.0=/Users/it-cmcglobal/Project/Code/flutter/clean_architect_flutter_bloc/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

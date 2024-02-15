@@ -23,5 +23,4 @@ class AuthRepositoryImpl extends AuthRepository{
     UserInfoEntity entity = await _authLocalDataSource.getUserInfo();
     return entity;
   }
-
 }

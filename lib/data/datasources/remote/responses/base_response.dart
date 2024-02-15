@@ -5,7 +5,7 @@ part 'base_response.g.dart';
 @JsonSerializable()
 class AuthResponse {
   factory AuthResponse.fromJson(Map<String, dynamic> json) =>
-      _$BaseResponseFromJson(json);
+      _$AuthResponseFromJson(json);
 
   AuthResponse({this.errorCode, this.errorMessage, this.accessToken});
 
@@ -13,5 +13,5 @@ class AuthResponse {
   final String? errorMessage;
   final String? accessToken;
 
-  Map<String, dynamic> toJson() => _$BaseResponseToJson(this);
+  Map<String, dynamic> toJson() => _$AuthResponseToJson(this);
 }
