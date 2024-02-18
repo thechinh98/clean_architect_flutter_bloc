@@ -31,6 +31,4 @@ class LoginUseCase extends UseCase<String,DataState<AuthEntity>> {
   Future<DataState<AuthEntity>> call(String argument) {
     return _authRepository.login();
   }
-
-
 }

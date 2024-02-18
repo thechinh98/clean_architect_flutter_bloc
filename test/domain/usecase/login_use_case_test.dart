@@ -16,8 +16,12 @@ void main() {
   });
   AuthEntity testAuthEntity = AuthEntity(token: 'empty');
 
-  test('should login', () {
-    when(mockAuthRepository.login())
-        .thenAnswer((_) async => DataSuccess(testAuthEntity));
+  test('should login', () async {
+    final DataSuccess<AuthEntity> successResponse =
+        DataSuccess<AuthEntity>(testAuthEntity);
+    when(mockAuthRepository.login()).thenAnswer((_) async => successResponse);
+
+    final DataState<AuthEntity> result = await loginUseCase.call('test');
+    expect(result, successResponse);
   });
 }
