@@ -5,6 +5,7 @@ class RemoteDataSourceDI {
   RemoteDataSourceDI._();
 
   static Future<void> init(GetIt injector) async {
-    injector.registerFactory(() => AuthRemoteDataSource(injector()));
+    injector.registerFactory(
+        () => AuthRemoteDataSourceImpl(authService: injector()));
   }
 }

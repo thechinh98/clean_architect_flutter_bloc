@@ -17,3 +17,7 @@ String getGooglePhotosUrl(String photoRef, {double? maxWidth}) {
       'https://maps.googleapis.com/maps/api/place/photo?maxwidth=${maxWidth ?? '200'}&photo_reference=$photoRef&key=$googlePhotosKey';
   return url;
 }
+
+// END POINT
+const String authPath = '/api/auth';
+const String loginEndPoint = '/login';

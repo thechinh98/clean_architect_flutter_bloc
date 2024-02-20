@@ -3,15 +3,21 @@ import 'package:base_flutter_bloc/domain/entities/auth_entities.dart';
 
 import '../../../domain/entities/data_state.dart';
 
-class AuthRemoteDataSource {
-  AuthRemoteDataSource(this._authService);
+abstract class AuthRemoteDataSource {
+  Future<DataState<AuthEntity>> login(String phoneNumber, String countryCode);
+}
+
+class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
+  AuthRemoteDataSourceImpl({required AuthService authService})
+      : _authService = authService;
 
   final AuthService _authService;
 
-  Future<DataState<AuthEntity>> login(
-      String phoneNumber, String countryCode) async {
+  @override
+  Future<DataState<AuthEntity>> login(String phoneNumber,
+      String countryCode) async {
     final DataState<AuthEntity> loginResponse =
-        await _authService.login(phoneNumber, countryCode);
+    await _authService.login(phoneNumber, countryCode);
     return loginResponse;
   }
 }
