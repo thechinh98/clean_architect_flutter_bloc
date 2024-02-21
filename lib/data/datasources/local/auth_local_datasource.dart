@@ -17,11 +17,16 @@ const String prefCountryCodeKey = 'prefCountryCodeKey';
 const String prefPhoneNumberKey = 'prefPhoneNumberKey';
 const String prefIsSetupCompleteKey = 'prefIsSetupCompleteKey';
 
-class AuthLocalDataSource {
-  AuthLocalDataSource({required this.preferences});
+abstract class AuthLocalDataSource {
+  Future<UserInfoEntity> getUserInfo();
+}
+
+class AuthLocalDataSourceImpl extends AuthLocalDataSource {
+  AuthLocalDataSourceImpl({required this.preferences});
 
   SharedPreferences preferences;
 
+  @override
   Future<UserInfoEntity> getUserInfo() async {
     final String profileId =
         preferences.getString(prefUserIdKey) ?? kEmptyString;

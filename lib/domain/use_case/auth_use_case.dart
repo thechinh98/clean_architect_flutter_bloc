@@ -10,8 +10,10 @@ class AuthUseCase {
 
   final AuthRepository _authRepository;
 
-  Future<DataState<AuthEntity>> login() async {
-    DataState<AuthEntity> entity = await _authRepository.login();
+  Future<DataState<AuthEntity>> login(
+      String phoneNumber, String countryCode) async {
+    DataState<AuthEntity> entity =
+        await _authRepository.login(phoneNumber, countryCode);
     return entity;
   }
 
@@ -21,14 +23,20 @@ class AuthUseCase {
   }
 }
 
-class LoginUseCase extends UseCase<String,DataState<AuthEntity>> {
+class LoginUseCase extends UseCase<LoginParams, DataState<AuthEntity>> {
   LoginUseCase(this._authRepository);
 
   final AuthRepository _authRepository;
 
-
   @override
-  Future<DataState<AuthEntity>> call(String argument) {
-    return _authRepository.login();
+  Future<DataState<AuthEntity>> call(LoginParams argument) {
+    return _authRepository.login(argument.phoneNumber, argument.countryCode);
   }
+}
+
+class LoginParams {
+  LoginParams({required this.phoneNumber, required this.countryCode});
+
+  final String phoneNumber;
+  final String countryCode;
 }

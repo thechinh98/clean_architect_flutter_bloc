@@ -6,6 +6,6 @@ class LocalDataSourceDI {
 
   static Future<void> init(GetIt injector) async {
     injector.registerLazySingleton<AuthLocalDataSource>(
-        () => AuthLocalDataSource(preferences: injector()));
+        () => AuthLocalDataSourceImpl(preferences: injector()));
   }
 }

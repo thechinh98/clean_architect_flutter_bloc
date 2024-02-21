@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:equatable/equatable.dart';
 
-abstract class DataState<T> {
+abstract class DataState<T> extends Equatable {
   const DataState({this.data, this.error, this.unknownError});
 
   final T? data;
@@ -10,11 +11,17 @@ abstract class DataState<T> {
 
 class DataSuccess<T> extends DataState<T> {
   const DataSuccess(T data) : super(data: data);
+
+  @override
+  List<Object?> get props => [data];
 }
 
 class DataFailed<T> extends DataState<T> {
   const DataFailed(DioError? error, {dynamic unknownError})
       : super(error: error, unknownError: unknownError);
+
+  @override
+  List<Object?> get props => [error, unknownError];
 }
 
 extension DataStateX<T> on DataState<T> {

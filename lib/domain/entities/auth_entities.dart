@@ -1,7 +1,10 @@
-import 'package:base_flutter_bloc/domain/entities/base_entity_model.dart';
+import 'package:equatable/equatable.dart';
 
-class AuthEntity extends BaseEntityModel{
-  AuthEntity({required this.token});
+class AuthEntity extends Equatable {
+  const AuthEntity({required this.token});
 
-  String token = '';
+  final String token;
+
+  @override
+  List<Object?> get props => [token];
 }

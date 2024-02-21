@@ -19,9 +19,11 @@ void main() {
   test('should login', () async {
     final DataSuccess<AuthEntity> successResponse =
         DataSuccess<AuthEntity>(testAuthEntity);
-    when(mockAuthRepository.login()).thenAnswer((_) async => successResponse);
+    when(mockAuthRepository.login('', ''))
+        .thenAnswer((_) async => successResponse);
 
-    final DataState<AuthEntity> result = await loginUseCase.call('test');
+    final DataState<AuthEntity> result =
+        await loginUseCase.call(LoginParams(phoneNumber: '', countryCode: ''));
     expect(result, successResponse);
   });
 }

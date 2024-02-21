@@ -4,6 +4,6 @@ import '../entities/data_state.dart';
 import '../entities/user_info_entity.dart';
 
 abstract class AuthRepository {
-  Future<DataState<AuthEntity>> login();
+  Future<DataState<AuthEntity>> login(String phoneNumber, String countryCode);
   Future<UserInfoEntity> getUserInfo();
 }

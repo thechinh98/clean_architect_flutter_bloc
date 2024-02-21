@@ -5,6 +5,6 @@ class BlocDI {
   BlocDI._();
 
   static Future<void> init(GetIt injector) async {
-    injector.registerFactory<LoginBloc>(() => LoginBloc());
+    injector.registerFactory<LoginBloc>(() => LoginBloc(injector()));
   }
 }

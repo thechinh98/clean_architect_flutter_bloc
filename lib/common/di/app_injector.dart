@@ -13,7 +13,6 @@ import 'package:get_it/get_it.dart';
 import '../configs/network_config.dart';
 import 'database_di.dart';
 import 'repository_di.dart';
-import 'service_di.dart';
 import 'use_case_di.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -30,7 +29,6 @@ class AppInjector {
       await LoggerDI.init(injector, buildMode: buildMode);
       await DatabaseDI.init(injector);
       await ApiDI.init(injector);
-      await ServiceDI.init(injector);
       await ModelDI.init(injector);
       await LocalDataSourceDI.init(injector);
       await RemoteDataSourceDI.init(injector);

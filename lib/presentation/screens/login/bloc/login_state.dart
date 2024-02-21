@@ -18,7 +18,7 @@ class LoginState {
   LoginState copyWith({LoginStatus? status, String? message}) {
     return LoginState(
         status: status ?? this.status,
-        message: message ?? this.message
+        message: message ?? this.message,
     );
   }
 

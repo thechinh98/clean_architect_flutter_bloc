@@ -1,11 +1,10 @@
 import 'package:base_flutter_bloc/data/datasources/remote/responses/base_response.dart';
 import 'package:base_flutter_bloc/domain/entities/auth_entities.dart';
-import 'package:base_flutter_bloc/domain/entities/base_entity_model.dart';
 
 import 'base_mapper.dart';
 
 extension AuthResponseMapperX on AuthResponse {
-  BaseEntityModel mapToEntity() {
+  AuthEntity mapToEntity() {
     return AuthEntity(token: accessToken ?? '');
   }
 }
